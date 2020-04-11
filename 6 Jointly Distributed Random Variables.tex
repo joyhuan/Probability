@@ -53,7 +53,7 @@ P(X>a, Y>b) &= 1- P((X > a, Y > b)^C) \\
             &= 1 - F_X(a) - F_Y(b) + F(a,b) 
 \end{align*}
 $P(a_1 < X \leq a_2, b_1 < Y \leq b_2) = F(a_2, b_2) + F(a_1, b_1) - F(a_1, b_2) - F(a_2, b_1)$ (1.2)\\ 
-[Makes much more sense when revisit it after two years haha] \\ 
+Comment: Makes much more sense when revisit it after two years haha \\ 
 In the case when X and Y are both discrete rvs, it is convenient to define the \underline{\textbf{joint prob mass fcn of X and Y}} by \\
 $p(x,y) = P(X=x, Y=y)$ \\
 The \underline{\textbf{prob mass fcn of X}} can be obtained from p(x,y) by \\
@@ -61,7 +61,7 @@ $ p_X(x) = P(X=x) = \sum_{y:p(x,y) > 0}p(x,y)$ \\
 Similarly, \\
 $ p_Y(y) = \sum_{x:p(x,y) > 0}p(x,y)$\\
 Because the individual prob mass fcns of X and Y thus appear in the margin of such a table, they are often referred to as the \underline{\textbf{marginal prob mass fcns}} of X and Y, respectively. \\
-We say that X and Y are \underline{\textbf{jointly continuous}} if there exists a fcn f(x,y), defined for all real x and y, having the property that, for every set C of pairs of real #s (that is, C is a set in the two-dimensional place),\\
+We say that X and Y are \underline{\textbf{jointly continuous}} if there exists a fcn f(x,y), defined for all real x and y, having the property that, for every set C of pairs of real numbers (that is, C is a set in the two-dimensional place),\\
 $P((X,Y)\in C) = \int_{(x,y)\in C} f(x,y)dx dy $ (1.3)\\ 
 The function f(x,y) is called the joint probability density function of X and Y. If A and B are any sets of real numbers, then, by defining $C=[(x,y):x \in A, y \in B]$, we see from Equation (1.3) that \\
 $P(X \in A, Y \in B) = \int_{B}\int_{A}f(a,y)dx dy$ (1.4) \\ 
@@ -70,7 +70,7 @@ $F(a,b) = P(X \in (-\inf, a), Y \in (-\inf, b)) = \int_{-\inf}^{b}\int_{-\inf}^{
 it follows, upon differentiation, that \\
 $f(a,b) = \frac{\partial^2}{\partial a \partial b}F(a, b)$\\
 wherever the partial derivatives are defined. Another interpretation of the joint density function, obtained from Equation (1.4), is \\
-[Tbh, from my experience, discrete is much more useful in real life] \\
+Comment: Tbh, from my experience, discrete is much more useful in real life \\
 $P(a < X < a + da, b < Y < b + db) = \int_{b}^{b + db} \inf_{a}^{a + da} f(x,y) dx dy$\\
 when da and db are small and f(x,y) is continuous at a,b. Hence f(a,b) is the measure of how likely it is that the random vector (X,Y) will be near (a,b). \\
 If X and Y are continuous, they are individually continuous, and their prob density fcns can be obtained as follows: 
@@ -83,6 +83,34 @@ f_X(x)      &= \int_{-\inf}^{\inf}f(x,y)dy
 \end{align*}
 is thus the prob density fcn of X. Similarly, the prob density fcn of Y is given by \\
 $f_Y(y) = \int_{-\inf}^{\inf}f(x,y)dx$\\
+Side: I really like this question of $P(X < Y)$ \\ 
+The joint density fcn of X and Y is given by \\ 
+$ f(x,y) = 2e^{-x}e^{-2y}$ $0< x < \inf, 0 < y < \inf$ and 0 otherwise 
+\begin{align*}
+P(X,Y)  &= \int_{(x,y): x < y} \int 2e^{-x}e^(-2y)dx dy \\
+        &= \int_{0}^{\inf} \int_{0}^{y} 2e^{-x}e^(-2y)dx dy \\
+        &= \int_{0}^{\inf} 2e^{-2y}(1-e^{-y})dy \\
+        &= \int_{0}^{\inf} 2e^{-2y}dy - \int_{0}^{\inf} 2e^{-3y}dy \\
+        &= 1 - \frac{2}{3} \\
+        &= \frac{1}{3}
+\end{align*}
+We can also define joint prob distributions for n rvs in exactly the same manner as we did for n = 2. \\
+For instance, the joint cumulative prob distri fcn $F(a_1, a_2, ..., a_n)$ of the n rvs $X_1, X_2, ..., X_n$ is defined by \\
+$F(a_1, a_2, ..., a_n) = P(X_1 \leq a_1, X_2 \leq a_2, ..., X_n \leq a_n)$\\
+Further, the n rvs are said to be \underline{\textbf{jointly continuous}} if there exists a fcn $f(a_1, a_2, ..., a_n)$, \\
+called the \underline{\textbf{joint probability density fcn}}, st, for any set C in n-space, \\
+$P((X_1, X_2, ..., X_n)\in C) = \int_{(x_1,...,x_n)\in C} \int ... \int f(x_1,...,x_n)dx_1 dx_2 ... dx_n $ \\ 
+In particular, for any n sets of real numbers $A_1, A_2, ... ,A_n$,\\
+$P(X_1 \in A_1, X_2 \in A_2, ...,X_n \in A_n) = \int_{A_n} \int_{A_{n-1}} ... \int_{A_1} f(x_1,...,x_n)dx_1 dx_2 ... dx_n $ \\ 
+The multinomial distribution\\
+One of the most important joint distributions is the multinomial distribution, which arises when a sequence of n independent and identical experiments is performed. Suppose that each experiment can result in any one of r possible outcomes, with respective prob $p_1, p_2, ..., p_r, \sum_{i=1}^r p_i = 1$. If we let $X_i$ denote the number of the n experiments that result in outcome number i, then \\ 
+$P(X_1 = n_1, X_2 = n_2, ..., X_r = n_r) = \frac{n!}{n_1!n_2!...n_r!}p_1^{n_1}p_2^{n_2}...p_r^{n_r}$ (1.5) whenever $\sum_{i=1}^r n_i =n.$ \\
+Equation (1.5) is verified by noting that any sequence of outcomes for the n experiments that leads to outcome i occurring $n_i$ times for i = 1,2, ...,r will, by the assumed independence of experiments, have prob $p_i^{n_1}p_2^{n_2}...p_r^{n_r}$ of occurring. Because there are $\frac{n!}{n_1!n_2!...n_r!}$ such sequences of outcomes (there are $\frac{n!}{n_1!n_2!...n_r!}$ different permutations of n things of which $n_1$ are alike, ..., $n_r$ are alike), Equation (1.5) is established.\\
+Comment: Well said! \\
+The joint distribution whose joint probability mass fcn is specified by Equation (1.5) is called the \\
+\underline{\textbf{multinomial distri}}. Note that when r = 2, the multinomial reduces to the binomial distri. \\
+Note also that any sum of a fixed set of the $X_i$'s will have a binomial distri. That is, if N $\subset {1,2,...,r}$, then $\sum_{i \in N}X_i$ will be a binomial rv with parameters n and $p=\sum_{i \in N} p_i$. This follows because $\sum_{i \in N}X_i$ represents the number of the n experiments whose outcome is in N, and each experiment will independently have such an outcome with probability $p=\sum_{i \in N} p_i$. 
+\section*{6.2 Independent RVs}
 
 % \begin{figure}[h!]
 % \centering
@@ -90,10 +118,7 @@ $f_Y(y) = \int_{-\inf}^{\inf}f(x,y)dx$\\
 % \caption{The Universe}
 % \label{fig:universe}
 % \end{figure}
-
-% \section{Conclusion}
-% ``I always thought something was fundamentally wrong with the universe'' \citep{adams1995hitchhiker}
-
+% \citep{adams1995hitchhiker}
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
