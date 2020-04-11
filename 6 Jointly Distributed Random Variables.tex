@@ -7,7 +7,7 @@
 
 \usepackage{natbib}
 \usepackage{graphicx}
-
+\usepackage{amsmath}
 \begin{document}
 
 \maketitle
@@ -26,8 +26,24 @@
 
 
 \section*{6.1 Joint Distribution Functions}
-$F(a,b) = P{X<=a, Y<=b} -inf < a, b < inf$ \\
-$F_X(a) = F(a, inf)$
+$F(a,b) = P(X \leq a, Y \leq b) -\inf < a, b < \inf$ \\
+$F_X(a) = F(a, \inf), F_Y(b) = F(\inf, b)$ Marginal distributions of X and Y \\ 
+All joint prob statements about X and Y can, in theory, be answered in terms of their joint distribution fcn. \\
+For instance, joint prob that X is greater than a and Y is greater than b. 
+\begin{align*}
+P(X>a, Y>b) &= 1- P((X > a, Y > b)^C) \\ 
+            &= 1- P((X > a)^C \cup (Y > b)^C) \\
+            &= 1 - P((X \leq a) \cup (Y \leq b))  (1.1) \\
+            &= 1 - [P(X \leq a) + P(Y \leq b) - P(X \leq a, Y \leq b)]\\
+            &= 1 - F_X(a) - F_Y(b) + F(a,b) 
+\end{align*}
+$P(a_1 < X \leq a_2, b_1 < Y \leq b_2) = F(a_2, b_2) + F(a_1, b_1) - F(a_1, b_2) - F(a_2, b_1)$ (1.2)\\ 
+In the case when X and Y are both discrete rvs, it is convenient to define the joint prob mass fcn of X and Y by \\
+$p(x,y) = P(X=x, Y=y)$ \\
+The prob mass fcn of X can be obtained from p(x,y) by \\
+$ p_X(x) = P(X=x) = \sum_{y:p(x,y) > 0}p(x,y)$ \\
+Similarly, \\
+$ p_Y(y) = \sum_{x:p(x,y) > 0}p(x,y)$
 
 % \begin{figure}[h!]
 % \centering
