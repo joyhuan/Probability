@@ -111,6 +111,18 @@ The joint distribution whose joint probability mass fcn is specified by Equation
 \underline{\textbf{multinomial distri}}. Note that when r = 2, the multinomial reduces to the binomial distri. \\
 Note also that any sum of a fixed set of the $X_i$'s will have a binomial distri. That is, if N $\subset {1,2,...,r}$, then $\sum_{i \in N}X_i$ will be a binomial rv with parameters n and $p=\sum_{i \in N} p_i$. This follows because $\sum_{i \in N}X_i$ represents the number of the n experiments whose outcome is in N, and each experiment will independently have such an outcome with probability $p=\sum_{i \in N} p_i$. 
 \section*{6.2 Independent RVs}
+The rvs X and Y are said to be \underline{\textbf{independent}} if, for any two sets of real numbers A and B, \\
+$P(X \in A, Y \in B) = P(X \in A)P(Y \in B)$ (2.1) \\ 
+In other words, X and Y are are independent if, for all A and B, the events $E_A = {X \in A}$ and $E_B = {Y \in B}$ are independent. \\
+In can be shown by using the three axioms of prob that Equation(2.1) will follow iff, for all a, b, \\
+$P(X \leq a, Y \leq b) = P(X \leq a)P(Y \leq b)$\\
+Hence, in terms of the joint distribution fcn F of X and Y, X and Y are indep if\\
+$F(a,b) = F_X(a)F_Y(b)$ for all a,b \\
+When X and Y are discrete rvs, the condition of indep (2,1) is equivalent to \\
+$p(x,y) = p_X(x)p_Y(y)$ for all x,y (2.2)\\
+In the jointly continuous case, the condition of indep is equivalent to \\
+$f(x,y) = f_X(x)f_Y(y)$ for all x,y \\
+Thus, loosely speaking, X and Y are indep if knowing the value of one does not change the distri of the other. Rvs that are not indep are said to be dependent. \\
 
 % \begin{figure}[h!]
 % \centering
