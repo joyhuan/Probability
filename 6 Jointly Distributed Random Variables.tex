@@ -123,7 +123,38 @@ $p(x,y) = p_X(x)p_Y(y)$ for all x,y (2.2)\\
 In the jointly continuous case, the condition of indep is equivalent to \\
 $f(x,y) = f_X(x)f_Y(y)$ for all x,y \\
 Thus, loosely speaking, X and Y are indep if knowing the value of one does not change the distri of the other. Rvs that are not indep are said to be dependent. \\
-
+Eg 2c. A man and a woman decide to meet at a certain location. If each of them indep arrives at a time uniformly distributed between 12 noon and 1 PM, find the probability that the first to arrive has to wait longer than 10 minutes. [Very nice; really like this question!] \\
+Sol: Let X and Y denote, the time past 12 the the man and the woman arrive, then X and Y are indep rv, each of which is uniformly distributed over (0,60). The desired prob, P(X + 10 < Y) + P(Y + 10 < X), which, by symmetry, equals 2P(X + 10 < Y), is obtained as follows: 
+\begin{align*}
+    2P(X + 10 < Y)  &= 2 \int_{x + 10 < y} \int f(x,y)dxdy \\
+                    &= 2 \int_{x + 10 < y} \int f_X(x)f_Y(y)dxdy \\
+                    &= 2 \int_{10}^{60} \int_{0}^{y-10} (\frac{1}{60})^2 dxdy \\
+                    &= \frac{2}{60^2}\int_{10}^{60}(y-10)dy \\ 
+                    &= \frac{25}{36}
+\end{align*}
+Eg 2b (2.3) - (2.8) \\
+Suppose that the number of people who enter a post office on a given day is a Poisson rv with parameter $\lambda$. Show that if each person who enters the post office is a male with prob p and a female with prob 1-p, then the number of males and females entering the post office are indep Poisson rvs with respective parameters $\lambda p$ and $\lambda (1-p)$ \\ 
+\begin{align*}
+    P(X = i, Y =j)  &= P(X = i, Y =j | X + Y = i + j)P(X + Y = i + j) \\              &+ P(X = i, Y =j | X + Y \neq i + j)P(X + Y \neq i + j) \\ 
+                    &= P(X = i, Y =j | X + Y = i + j)P(X + Y = i + j) (2.3) \\
+                    &= e^{-\lambda}\frac{\lambda^{i+j}}{(i+j)!} (2.4) \\
+     P(X = i, Y =j | X + Y = i + j) &= \binom(i+j,i)p^i(1-p)^j (2.5) \\
+     P(X = i, Y =j) &= \frac{e^{-\lambda p}(\lambda p)^i}{i!}e^{-\lambda (1-p)}\frac{[\lambda(1-p)]^j}{j!} (2.6) \\
+     P(X=i)         &= e^{-\lambda p}\frac{(\lambda p)^i}{i!} (2.7) \\
+     P(Y=j)         &= e^{-\lambda p}\frac{(\lambda p)^j}{j!} (2.8)
+\end{align*}
+Eg 2e Characterization of the normal distribution \\
+Let X and Y denote the horizontal and vertical miss distance with a bullet is fired at a target, and assume that \\
+1. X and Y are indep continuous rv having differentiable density fcns. \\
+2. The joint density $f(x,y)=f_X(x)f_Y(y)$ of X and Y depends on (x,y) only through $x^2 + y^2$.\\
+It is a rather interesting fact that assumptions 1 and 2 imply that X and Y are normally distributed rvs. Proof:\\ 
+$f(x,y)=f_X(x)f_Y(y)=2xg(x^2 + y^2)(2.9)$ \\
+for some fcn g. Differentiating Eqn(2.9) wrt x yields \\
+$f'_X(x)f_Y(y)=2xg'(x^2 + y^2) (2.10)$\\
+Dividing Eqn(2.10) by Eqn(2.9) gives \\
+$\frac{f'_X(x)}{f_X(x} = \frac{2xg'(x^2 + y^2)}{g'(x^2 + y^2)}$\\
+or $\frac{f'_X(x)}{2xf_X(x} = \frac{g'(x^2 + y^2)}{g'(x^2 + y^2)}(2.11)$\\
+Because the value of the lhs depends only on x, whereas the value of the rhd depends on $x^2 + y^2$, it follows that the lhs must be the same for all x.
 % \begin{figure}[h!]
 % \centering
 % \includegraphics[scale=1.7]{universe}
