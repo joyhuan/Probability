@@ -154,7 +154,22 @@ $f'_X(x)f_Y(y)=2xg'(x^2 + y^2) (2.10)$\\
 Dividing Eqn(2.10) by Eqn(2.9) gives \\
 $\frac{f'_X(x)}{f_X(x} = \frac{2xg'(x^2 + y^2)}{g'(x^2 + y^2)}$\\
 or $\frac{f'_X(x)}{2xf_X(x} = \frac{g'(x^2 + y^2)}{g'(x^2 + y^2)}(2.11)$\\
-Because the value of the lhs depends only on x, whereas the value of the rhd depends on $x^2 + y^2$, it follows that the lhs must be the same for all x.
+Because the value of the lhs depends only on x, whereas the value of the rhd depends on $x^2 + y^2$, it follows that the lhs must be the same for all x. \\
+Hence,\\
+$\frac{f'_X(x)}{xf_X(x)}=c$ or $\frac{d}{dx}(logf_X(x))=cx$\\
+which implies, upon integration of both sides, that \\
+$logf_X(x)= a + \frac{cx^2}{2}$ or $f_X(x)=ke^{cx^2/2}$\\
+Since $\int_{-\inf}^{\inf}f_X(x)dx =1$, it follows that c is necessarily negative, and we may write c = -1/$\sigma^2$. Thus, \\
+$f_X(x)=ke^{-x^2/2\sigma^2}$\\
+That is, X is a normal rv with paras $\mu$ = 0 and $\sigma^2$. A similar argumnet can be applied to $f_Y(y) to show that$ \\ 
+$f_Y(x)=\frac{1}{\sqrt{2\pi}\hat{\sigma}}e^{-x^2/2\hat{\sigma}^2}$\\
+Furthermore, it follows from assumption 2 that $\sigma^2 = \hat{\sigma}^2$  \\
+A necessary and sufficient condition for the rv X and  Y to be indep is for their joint prob density fcn(or joint prob mass fcn in the discrete case) f(x,y) to factor into two terms, one depending only on x and the other depending only on y. \\
+Proposition 2.1. The continuous(discrete) rvs X and Y are indep iff their joint prob density(mass) fcn can be expressed as \\
+$f_{X,Y}(x,y) = h(x)g(y) -\inf < x < \inf, -\inf<y<\inf$ \\
+Finally, we say that an infinite collection of rvs is indep if every finite subcollection of them is indep.\\
+
+
 % \begin{figure}[h!]
 % \centering
 % \includegraphics[scale=1.7]{universe}
