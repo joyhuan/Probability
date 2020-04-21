@@ -10,6 +10,7 @@
 \usepackage{amsmath}
 \usepackage{geometry}
 \usepackage{outlines}
+\usepackage[T1]{fontenc}
  \geometry{
  a4paper,
  total={170mm,257mm},
@@ -44,8 +45,8 @@ $F(a,b) = P(X \leq a, Y \leq b) -\inf < a, b < \inf$
 F_X(a)  &= P(X \leq a) \\ 
         &= P(X \leq a, Y < \inf) \\ 
         &= P(\lim_{b \rightarrow \inf}(X \leq a, Y \leq b)) \\ 
-        &= lim_{b \rightarrow \inf} P(X \leq a, Y \leq b) \\ 
-        &= lim_{b \rightarrow \inf} F(a,b) \\ 
+        &= \lim_{b \rightarrow \inf} P(X \leq a, Y \leq b) \\ 
+        &=\lim_{b \rightarrow \inf} F(a,b) \\ 
         &= F(a, \inf)
 \end{align*}
 $ F_Y(b) = F(\inf, b)$ \underline{\textbf{Marginal distributions of X and Y}} \\ 
@@ -139,7 +140,7 @@ Sol: Let X and Y denote, the time past 12 the the man and the woman arrive, then
                     &= \frac{25}{36}
 \end{align*}
 Eg 2b (2.3) - (2.8) \\
-Suppose that the number of people who enter a post office on a given day is a Poisson rv with parameter $\lambda$. Show that if each person who enters the post office is a male with prob p and a female with prob 1-p, then the number of males and females entering the post office are indep Poisson rvs with respective parameters $\lambda p$ and $\lambda (1-p)$ \\ 
+Suppose that the number of people who enter a post office on a given day is a Poisson rv with parameter $\lambda$. Show that if each person who enters the post office is a male with prob p and a female with prob 1-p, then the number of males and females entering the post office are indep Poisson rvs with respective parameters $\lambda p$ and $\lambda (1-p)$ 
 \begin{align*}
     P(X = i, Y =j)  &= P(X = i, Y =j | X + Y = i + j)P(X + Y = i + j) \\              &+ P(X = i, Y =j | X + Y \neq i + j)P(X + Y \neq i + j) \\ 
                     &= P(X = i, Y =j | X + Y = i + j)P(X + Y = i + j) (2.3) \\
@@ -154,27 +155,64 @@ Let X and Y denote the horizontal and vertical miss distance with a bullet is fi
 1. X and Y are indep continuous rv having differentiable density fcns. \\
 2. The joint density $f(x,y)=f_X(x)f_Y(y)$ of X and Y depends on (x,y) only through $x^2 + y^2$.\\
 It is a rather interesting fact that assumptions 1 and 2 imply that X and Y are normally distributed rvs. Proof:\\ 
-$f(x,y)=f_X(x)f_Y(y)=2xg(x^2 + y^2)(2.9)$ \\
+$f(x,y)=f_X(x)f_Y(y)=2x g(x^2 + y^2)(2.9)$ \\
 for some fcn g. Differentiating Eqn(2.9) wrt x yields \\
-$f'_X(x)f_Y(y)=2xg'(x^2 + y^2) (2.10)$\\
+$f'_X(x)f_Y(y)=2x g'(x^2 + y^2) (2.10)$\\
 Dividing Eqn(2.10) by Eqn(2.9) gives \\
-$\frac{f'_X(x)}{f_X(x} = \frac{2xg'(x^2 + y^2)}{g'(x^2 + y^2)}$\\
-or $\frac{f'_X(x)}{2xf_X(x} = \frac{g'(x^2 + y^2)}{g'(x^2 + y^2)}(2.11)$\\
+$\frac{f'_X(x)}{f_X(x} = \frac{2x g'(x^2 + y^2)}{g'(x^2 + y^2)}$\\
+or $\frac{f'_X(x)}{2x f_X(x} = \frac{g'(x^2 + y^2)}{g'(x^2 + y^2)}(2.11)$\\
 Because the value of the lhs depends only on x, whereas the value of the rhd depends on $x^2 + y^2$, it follows that the lhs must be the same for all x. \\
 Hence,\\
-$\frac{f'_X(x)}{xf_X(x)}=c$ or $\frac{d}{dx}(logf_X(x))=cx$\\
+$\frac{f'_X(x)}{x f_X(x)}=c$ or $\frac{d}{dx}(log f_X(x))=c x$\\
 which implies, upon integration of both sides, that \\
-$logf_X(x)= a + \frac{cx^2}{2}$ or $f_X(x)=ke^{cx^2/2}$\\
+$log f_X(x)= a + \frac{cx^2}{2}$ or $f_X(x)=k e^{c x^2/2}$\\
 Since $\int_{-\inf}^{\inf}f_X(x)dx =1$, it follows that c is necessarily negative, and we may write c = -1/$\sigma^2$. Thus, \\
-$f_X(x)=ke^{-x^2/2\sigma^2}$\\
-That is, X is a normal rv with paras $\mu$ = 0 and $\sigma^2$. A similar argumnet can be applied to $f_Y(y) to show that$ \\ 
+$f_X(x)=k e^{-x^2/2\sigma^2}$\\
+That is, X is a normal rv with paras $\mu$ = 0 and $\sigma^2$. A similar argument can be applied to $f_Y(y) to show that$ \\ 
 $f_Y(x)=\frac{1}{\sqrt{2\pi}\hat{\sigma}}e^{-x^2/2\hat{\sigma}^2}$\\
 Furthermore, it follows from assumption 2 that $\sigma^2 = \hat{\sigma}^2$  \\
 A necessary and sufficient condition for the rv X and  Y to be indep is for their joint prob density fcn(or joint prob mass fcn in the discrete case) f(x,y) to factor into two terms, one depending only on x and the other depending only on y. \\
 Proposition 2.1. The continuous(discrete) rvs X and Y are indep iff their joint prob density(mass) fcn can be expressed as \\
 $f_{X,Y}(x,y) = h(x)g(y) -\inf < x < \inf, -\inf<y<\inf$ \\
-Finally, we say that an infinite collection of rvs is indep if every finite subcollection of them is indep.\\
+Finally, we say that an infinite collection of rvs is indep if every finite subcollection of them is indep.
+\section*{6.3 Sums of Independent RVs}
+\begin{align*}
+    F_{X+Y} &= P(X + Y \leq a) \\
+            &= \int_{x+y \leq a}\int f_X(x)f_Y(y)dxdy (3.1) \\
+            &= \int_{-\inf}^{\inf}\int_{a-y}^{\inf}f_X(x)dx f_Y(y)dy \\
+            &= \int_{-\inf}^{\inf}F_X(a-y)f_Y(y)dy
+\end{align*}
+The cumulative distribution function $F_{X+Y}$ is called the convolution of the distributions $F_X$ and $F_Y$ (the cumulative distribution functions of X and Y, respectively). \\
+By differentiating Equation(3.1), we find that the probability density function $f_{X+Y}$ of X+Y is given by 
+\begin{align*}
+    f_{X+Y}(a)  &= \frac{d}{da}\int_{-\inf}^{\inf}F_X(a-y)f_Y(y)dy \\
+                &= \int_{-\inf}^{\inf}\frac{d}{da}F_X(a-y)f_Y(y)dy (3.2)\\
+                &= \int_{-\inf}^{\inf}f_X(a-y)f_Y(y)dy  
+\end{align*}
 
+\subsection*{6.3.1 Identically Distributed Uniform Random Variables}
+Eg 3a Sum of two indep uniform rvs \\
+\begin{align*}
+    f_X(a) = f_Y(a) = \begin{cases}
+                        1, & \text{ 0 < a < 1} \\
+                        0, & \text{otherwise}
+                      \end{cases}
+\end{align*}
+we obtain \\
+$f_{X+Y}(a) = \int_{0}^1f_X(a-y)dy$\\
+For $0 \leq a \leq 1$, this yields \\
+$f_{X+Y}(a) = \int_{0}^a dy = a$\\
+For $1 \leq a \leq 2$, we get \\
+$f_{X+Y}(a) = \int_{a-1}^1 dy = 2 - a$\\
+Hence 
+\begin{align*}
+    f_{X+Y}(a)  = f_Y(a) = \begin{cases}
+                        a, & \text{ 0 $\leq$ a $\leq$ 1} \\
+                        2 - a, & \text{ 1 < a < 2} \\
+                        0, & \text{otherwise}
+                      \end{cases}
+\end{align*}
+Because of the shape of its density function, the rv X + Y is said to have a triangular distribution. 
 
 % \begin{figure}[h!]
 % \centering
