@@ -212,8 +212,27 @@ Hence
                         0, & \text{otherwise}
                       \end{cases}
 \end{align*}
-Because of the shape of its density function, the rv X + Y is said to have a triangular distribution. 
-
+Because of the shape of its density function, the rv X + Y is said to have a triangular distribution. \\
+Now, suppose that $X_1, X_2, ..., X_n$ are indep uniform (0,1) rvs, and let \\
+$F_n(x) = P(X_1 + X_2 + ... + X_n) \leq x$ \\
+Whereas a general formula for $F_n(x)$ is messy, it has a particularly nice form when $x \leq 1$. Indeed, we now use mathematical induction to prove that \\ 
+$F_n(x) = x^n/n!, 0 \leq x \leq 1$ \\ 
+For an interesting application of the preceding formula, [Comment: I attest, indeed interesting :)] \\ 
+let us use it to determine the expected number of indep uniform (0,1) rvs that need to be summed to exceed 1. \\
+That is, with $X_1, X_2, ...$ being independent uniform (0,1) rvs, want to determine E[N], where $N = min{n: X_1 + ...  X_n >1}$\\
+Noting that N is greater than n > iff $X_1 + ...  X_n \leq 1$, we see that \\
+$ P(N>n) = F_n(1) = 1/n!, n>0$ \\
+Because \\
+$ P(N>0) = 1 = 1/0!$ \\
+we see that, for n > 0, \\
+$ P(N = n) = P(N > n-1) - P(N > n) = \frac{1}{(n-1)!} - \frac{1}{n!} = \frac{n-1}{n!}$ \\ 
+Therefore, 
+\begin{align*}
+    E[N]&= \sum_{n=1}^{\inf}\frac{n(n-1)}{n!} \\
+        &= \sum_{n=2}^{\inf}\frac{1}{(n-2)!} \\
+        &= e
+\end{align*}
+That is, the mean number of indep uniform (0,1) rvs that must be summed for the sum to exceed 1 = e. 
 % \begin{figure}[h!]
 % \centering
 % \includegraphics[scale=1.7]{universe}
