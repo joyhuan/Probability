@@ -237,7 +237,14 @@ That is, the mean number of indep uniform (0,1) rvs that must be summed for the 
 \subsection*{6.3.2 Gamma Random Variables}
 A gamma rv has a density of the form $f(y) = \frac{\lambda e^{-\lambda y}(\lambda y)^{t-1}}{\Gamma(t)} 0 < y < \inf$
 \\
-Proposition 3.1 If X and Y are independent gamma rvs with variables with respective parameters $(s, \lambda)$ and $(t, \lambda)$, then X + Y is a gamma rv with parameters (s+t, $\lambda$). 
+Proposition 3.1 If X and Y are independent gamma rvs with variables with respective parameters $(s, \lambda)$ and $(t, \lambda)$, then X + Y is a gamma rv with parameters (s+t, $\lambda$). \\
+Eg 3b Let $X_1, X_2, ..., X_n$ be n independent exponential rvs, each having parameter $\lambda$. Then, since an exponential rv with parameter $\lambda$ is the same as a gamma rv with para (1, $\lambda$), it follows from Proposition 3.1 that $X_1 + X_2 + ... + X_n$ is a gamma rv with parameters (n, $\lambda$)\\
+If $Z_1, Z_2, ..., Z_n$ are independent standard normal rvs, then $Y \equiv \sum_{i=1}^n Z_i^2$ is said to have the chi-squared (sometimes seen as $\chi^2$) distribution with n degrees of freedom. Let us compute the density function of Y. In the following equation. when n = 1, Y = $Z_1^2$, we see that its probability density function is given by 
+\begin{align*}
+    f_{Z^2}(y) &= \frac{1}{2\sqrt{y}}[f_Z(\sqrt{y}) + f_Z(-\sqrt{y})]\\
+        &= \frac{1}{2\sqrt{y}} \frac{2}{\sqrt{2\pi}} e^{-y/2} \\
+        &= \frac{\frac{1}{2}e^{-y/2}(y/2)^{1/2-1}}{\sqrt{\pi}}
+\end{align*}
 
 % \begin{figure}[h!]
 % \centering
