@@ -24,7 +24,7 @@
 
 
 \subsection*{Exercise 1}
-If a stoplight in Metropolis has six cars stopped at it, and each car is a taxi independently with probability 1/2, what is the probability that there are three yellow taxis in a row at the traffic light?\\
+Given that Fluffy wakes you up 2/3 of nights independently, what is the probability that you get at least 2 full nights of sleep over the 5 nights you dogsit for your friend?
 
 \begin{proof}
 (Type your proof here.)
@@ -34,7 +34,27 @@ If a stoplight in Metropolis has six cars stopped at it, and each car is a taxi 
 
 
 \subsection*{Exercise 2}
-(Statement of problem goes here.)\\
+If a stoplight in Metropolis has six cars stopped at it, and each car is a taxi independently with probability 1/2, what is the probability that there are three yellow taxis in a row at the traffic light?\\
+
+\begin{proof}
+(Type your proof here.)
+\end{proof}
+
+\subsection*{Exercise 3}
+What is the probability that Clara wins Damien's ace of diamonds on the first move of the game? 
+\begin{proof}
+1. Prod(C\&D tie with aces AND C wins war) = Prod(C\&D tie with aces) Prod(C wins war|C\&D tie with aces) = 1/13 * 1/13 * 1/2 = 1/338 \\
+2. Prod(C\&D tie with non-aces AND D's ace is in next 3 cards AND C wins war) = 12/13 * 1/13 * 3/12 Prod(C wins war|C\&D tied and D's ace was in next 3 cards) = 3/169 * (1/12 + 11/12 * 1/2) = 3/169 * 13/24 = 1/104 \\
+3. Prod(C\&D tie with non-aces AND C\&D tie with aces in the war AND C wins the coin-flip) = 12/13 * 1/13 * 1/12 * 1/12 * 1/2 = 1/4056\\
+Final = case 1 + case 2 + case 3 (they are independent) = 1/338 + 1/104 + 1/4056 = (12 + 39 + 1)/4056 = 1/78
+\end{proof}
+
+
+\subsection*{Exercise 4}
+60\% of written test applicants have studied. \\ 
+75\% of written test applicants pass the test. \\
+Given that an applicant didn't study, he or she has a 50\% chance of passing. \\
+What is the probability that an applicant who passes the test studied for it? 
 
 \begin{proof}
 (Type your proof here.)
